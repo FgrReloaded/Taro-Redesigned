@@ -8,11 +8,13 @@ import { Separator } from "./ui/separator"
 
 const raleway = Raleway({
   subsets: ['latin'],
+  display: "swap",
   weight: ["400", "600", "700"]
 })
 
 const openSans = Open_Sans({
   subsets: ['latin'],
+  display: "swap",
   weight: ["400", "600", "800"]
 })
 

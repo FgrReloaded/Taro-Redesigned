@@ -85,7 +85,7 @@ const CourseCard = ({ course }) => {
       transition={{ duration: 0.3 }}
     >
       <Card
-        className="relative overflow-hidden h-[60vh] bg-gradient-to-br from-violet-50 to-fuchsia-50 border-2 border-transparent hover:border-violet-200 transition-all duration-300"
+        className="relative overflow-hidden h-[60vh] bg-gradient-to-br from-violet-100 to-indigo-100 border-2 border-transparent hover:border-violet-300 transition-all duration-300"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         style={openSans.style}
@@ -103,12 +103,12 @@ const CourseCard = ({ course }) => {
               className="w-full object-cover"
             />
           </motion.div>
-          <Badge className="absolute top-4 right-4 bg-white/80 hover:bg-white/70 text-violet-700 backdrop-blur-sm">
+          <Badge className="absolute top-4 right-4 bg-white/80 hover:bg-white/70 text-indigo-700 backdrop-blur-sm">
             {course.category}
           </Badge>
-          <h3 className="text-lg font-semibold mb-2 text-violet-900">{course.title}</h3>
+          <h3 className="text-lg font-semibold mb-2 text-indigo-900" style={jost.style}>{course.title}</h3>
           <div className="flex items-center mb-2">
-            <Star className="w-5 h-5 text-yellow-400 mr-1" />
+            <Star className="w-5 h-5 text-yellow-500 mr-1" />
             <span className="text-sm font-medium text-gray-600">{course.rating}</span>
           </div>
           <div className="flex items-center justify-between text-sm text-gray-500 mb-2">
@@ -121,27 +121,27 @@ const CourseCard = ({ course }) => {
               <span>{course.duration} weeks</span>
             </div>
           </div>
-          <div className="text-lg font-semibold text-violet-700 mb-4">${course.price}</div>
+          <div className="text-lg font-semibold text-indigo-700 mb-4" style={lato.style}>${course.price}</div>
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: isHovered ? 5 : 50, opacity: isHovered ? 1 : 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
             <Button
-              className="w-full bg-gradient-to-r from-violet-400 to-fuchsia-400 text-white hover:from-violet-500 hover:to-fuchsia-500 transition-all duration-300"
+              className="w-full bg-gradient-to-r from-violet-400 to-indigo-400 text-white hover:from-violet-500 hover:to-indigo-500 transition-all duration-300"
             >
               Enroll Now <ChevronRight className="w-4 h-4 ml-2" />
             </Button>
           </motion.div>
         </div>
         <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-violet-200/40 to-fuchsia-200/40 pointer-events-none"
+          className="absolute inset-0 bg-gradient-to-br from-violet-200/40 to-indigo-200/40 pointer-events-none"
           initial={{ opacity: 0 }}
           animate={{ opacity: isHovered ? 1 : 0 }}
           transition={{ duration: 0.3 }}
         />
         <motion.div
-          className="absolute -bottom-2 -left-2 w-20 h-20 bg-fuchsia-200 rounded-full mix-blend-multiply filter blur-xl opacity-70"
+          className="absolute -bottom-2 -left-2 w-20 h-20 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-70"
           animate={{
             scale: isHovered ? 1.2 : 1,
             x: isHovered ? 10 : 0,

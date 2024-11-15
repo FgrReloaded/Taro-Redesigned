@@ -9,16 +9,19 @@ import { Lato, Jost, Open_Sans } from "next/font/google";
 
 const lato = Lato({
   subsets: ['latin'],
+  display: "swap",
   weight: ["400", "700"]
 })
 
 const jost = Jost({
   subsets: ['latin'],
+  display: "swap",
   weight: ["400", "600", "800"]
 })
 
 const openSans = Open_Sans({
   subsets: ['latin'],
+  display: "swap",
   weight: ["400", "700"]
 })
 

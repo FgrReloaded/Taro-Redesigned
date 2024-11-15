@@ -8,16 +8,19 @@ import Image from 'next/image';
 
 const oswald = Oswald({
   subsets: ['latin'],
+  display: "swap",
   weight: ["400", "600","700"]
 })
 
 const openSans = Open_Sans({
   subsets: ['latin'],
+  display: "swap",
   weight: ["400", "600", "800"]
 })
 
 const poppins = Poppins({
   subsets: ['latin'],
+  display: "swap",
   weight: ["400", "600", "800", "900"]
 })
 

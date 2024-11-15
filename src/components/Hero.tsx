@@ -6,11 +6,13 @@ import Link from 'next/link'
 
 const alexBrush = Alex_Brush({
   subsets: ['latin'],
+  display: "swap",
   weight: ["400"]
 })
 
 const openSans = Open_Sans({
   subsets: ['latin'],
+  display: "swap",
   weight: ["400", "600", "800"]
 })
 

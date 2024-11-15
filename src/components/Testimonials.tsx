@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Open_Sans } from "next/font/google"
 const openSans = Open_Sans({
   subsets: ['latin'],
+  display: "swap",
   weight: ["400", "600", "800"]
 })
 
@@ -87,7 +88,7 @@ export function Testimonial() {
     <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden  bg-transparent mt-16">
       <h1 className="text-5xl py-16 font-bold uppercase text-transparent bg-clip-text bg-gradient-to-bl from-violet-950 via-violet-400 to-violet-950" style={openSans.style}
       >
-          From The Community
+        From The Community
       </h1>
       <Marquee pauseOnHover className="[--duration:20s]">
         {firstRow.map((review) => (
