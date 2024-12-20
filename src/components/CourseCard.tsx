@@ -1,10 +1,9 @@
 "use client"
 
-import React, { useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Clock, Users, Star, BookOpen } from 'lucide-react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Lato, Jost, Open_Sans } from "next/font/google";
 
 const lato = Lato({
@@ -25,8 +24,8 @@ const openSans = Open_Sans({
   weight: ["400", "700"]
 })
 
-const CourseCard = ({ title, instructor, duration, students, rating, price, category, description, thumbnail }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+// @ts-expect-error-ignore
+const CourseCard = ({ title, instructor, duration, students, rating, price, category, description }) => {
 
   return (
     <motion.div

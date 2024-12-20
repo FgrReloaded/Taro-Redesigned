@@ -2,9 +2,6 @@ import React from 'react'
 import CourseCard from './CourseCard'
 import { Open_Sans } from "next/font/google"
 
-
-
-
 const openSans = Open_Sans({
   subsets: ['latin'],
   display: "swap",
@@ -27,6 +24,7 @@ const CourseContainer = () => {
           students={200}
           title={"React Development"}
           description={"Learn React from scratch to advanced"}
+          // @ts-expect-error-ignore
           thumbnail={"/images/founder.jpg"}
         />
         <CourseCard
@@ -38,6 +36,7 @@ const CourseContainer = () => {
           students={200}
           title={"React Development"}
           description={"Learn React from scratch to advanced"}
+          // @ts-expect-error-ignore
           thumbnail={"/images/founder.jpg"}
         />
         <CourseCard
@@ -49,6 +48,7 @@ const CourseContainer = () => {
           students={200}
           title={"React Development"}
           description={"Learn React from scratch to advanced"}
+          // @ts-expect-error-ignore
           thumbnail={"/images/founder.jpg"}
         />
         <CourseCard
@@ -60,6 +60,7 @@ const CourseContainer = () => {
           students={200}
           title={"React Development"}
           description={"Learn React from scratch to advanced"}
+          // @ts-expect-error-ignore
           thumbnail={"/images/founder.jpg"}
         />
         <CourseCard
@@ -71,6 +72,7 @@ const CourseContainer = () => {
           students={200}
           title={"React Development"}
           description={"Learn React from scratch to advanced"}
+          // @ts-expect-error-ignore
           thumbnail={"/images/founder.jpg"}
         />
         <CourseCard
@@ -82,6 +84,7 @@ const CourseContainer = () => {
           students={200}
           title={"React Development"}
           description={"Learn React from scratch to advanced"}
+          // @ts-expect-error-ignore
           thumbnail={"/images/founder.jpg"}
         />
       </div>

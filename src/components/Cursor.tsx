@@ -11,7 +11,7 @@ const CursorLightEffect = () => {
   const y = useSpring(cursorY, springConfig);
 
   useEffect(() => {
-    const updateMousePosition = (e: any) => {
+    const updateMousePosition = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
     };

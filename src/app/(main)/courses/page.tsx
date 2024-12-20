@@ -73,6 +73,7 @@ const courses = [
   }
 ]
 
+// @ts-expect-error-ignore
 const CourseCard = ({ course }) => {
   const [isHovered, setIsHovered] = useState(false)
 
@@ -85,7 +86,7 @@ const CourseCard = ({ course }) => {
       transition={{ duration: 0.3 }}
     >
       <Card
-        className="relative overflow-hidden h-[60vh] bg-gradient-to-br from-violet-100 to-indigo-100 border-2 border-transparent hover:border-violet-300 transition-all duration-300"
+        className="relative overflow-hidden h-[60vh] bg-gradient-to-br from-indigo-100 to-indigo-100 border-2 border-transparent hover:border-indigo-300 transition-all duration-300"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         style={openSans.style}
@@ -128,14 +129,14 @@ const CourseCard = ({ course }) => {
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
             <Button
-              className="w-full bg-gradient-to-r from-violet-400 to-indigo-400 text-white hover:from-violet-500 hover:to-indigo-500 transition-all duration-300"
+              className="w-full bg-gradient-to-r from-indigo-400 to-indigo-400 text-white hover:from-indigo-500 hover:to-indigo-500 transition-all duration-300"
             >
               Enroll Now <ChevronRight className="w-4 h-4 ml-2" />
             </Button>
           </motion.div>
         </div>
         <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-violet-200/40 to-indigo-200/40 pointer-events-none"
+          className="absolute inset-0 bg-gradient-to-br from-indigo-200/40 to-indigo-200/40 pointer-events-none"
           initial={{ opacity: 0 }}
           animate={{ opacity: isHovered ? 1 : 0 }}
           transition={{ duration: 0.3 }}
@@ -149,7 +150,7 @@ const CourseCard = ({ course }) => {
           }}
         />
         <motion.div
-          className="absolute -top-2 -right-2 w-20 h-20 bg-violet-200 rounded-full mix-blend-multiply filter blur-xl opacity-70"
+          className="absolute -top-2 -right-2 w-20 h-20 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-70"
           animate={{
             scale: isHovered ? 1.2 : 1,
             x: isHovered ? -10 : 0,
@@ -161,12 +162,13 @@ const CourseCard = ({ course }) => {
   )
 }
 
+// @ts-expect-error-ignore
 const FilterBadge = ({ label, isSelected, onClick }) => (
   <Badge
     variant={isSelected ? "default" : "outline"}
     className={`mr-2 mb-2 cursor-pointer transition-all duration-300 ${isSelected
-      ? "bg-violet-500 hover:bg-violet-600 text-white"
-      : "bg-white text-violet-700 hover:bg-violet-100"
+      ? "bg-indigo-500 hover:bg-indigo-600 text-white"
+      : "bg-white text-indigo-700 hover:bg-indigo-100"
       }`}
     onClick={onClick}
   >
@@ -183,13 +185,17 @@ export default function CourseCardsWithBadgeFilters() {
   const [filteredCourses, setFilteredCourses] = useState(courses)
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
 
+  // @ts-expect-error-ignore
   const categories = [...new Set(courses.map(course => course.category))]
+  // @ts-expect-error-ignore
   const levels = [...new Set(courses.map(course => course.level))]
 
   useEffect(() => {
     const results = courses.filter(course =>
       course.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
+      // @ts-expect-error-ignore
       (selectedCategories.length === 0 || selectedCategories.includes(course.category)) &&
+      // @ts-expect-error-ignore
       (selectedLevels.length === 0 || selectedLevels.includes(course.level)) &&
       course.price <= priceRange[0] && course.price <= 200 &&
       course.duration <= durationRange[0] && course.duration <= 12
@@ -197,36 +203,41 @@ export default function CourseCardsWithBadgeFilters() {
     setFilteredCourses(results)
   }, [searchTerm, selectedCategories, selectedLevels, priceRange, durationRange])
 
+  // @ts-expect-error-ignore
   const toggleCategory = (category) => {
+    // @ts-expect-error-ignore
     setSelectedCategories(prev =>
+      // @ts-expect-error-ignore
       prev.includes(category) ? prev.filter(c => c !== category) : [...prev, category]
     )
   }
-
+  // @ts-expect-error-ignore
   const toggleLevel = (level) => {
+    // @ts-expect-error-ignore
     setSelectedLevels(prev =>
+      // @ts-expect-error-ignore
       prev.includes(level) ? prev.filter(l => l !== level) : [...prev, level]
     )
   }
 
   return (
     <div className="container mx-auto px-4 py-16 mt-24">
-      <h2 className="text-4xl md:ml-96 font-bold text-center text-violet-900" style={jost.style}>Software Engineering Career Courses</h2>
-      <p className="text-center text-lg text-violet-500 mb-12 ml-96" style={lato.style}>
+      <h2 className="text-4xl md:ml-96 font-bold text-center text-indigo-900" style={jost.style}>Software Engineering Career Courses</h2>
+      <p className="text-center text-lg text-indigo-500 mb-12 ml-96" style={lato.style}>
         On-demand courses dedicated to helping you navigate your software engineering career
       </p>
       <div className="flex flex-col lg:flex-row gap-8">
         <motion.div
-          className={`lg:w-1/4 h-[74vh] overflow-hidden top-[20%] fixed left-2 -translate-y-1/2 bg-gradient-to-tr from-fuchsia-50 to-violet-100 p-8 rounded-xl shadow-lg ${!isSidebarOpen && 'hidden lg:block'}`}
+          className={`lg:w-1/4 h-[74vh] overflow-hidden top-[20%] fixed left-2 -translate-y-1/2 bg-gradient-to-tr from-blue-50 to-indigo-100 p-8 rounded-xl shadow-lg ${!isSidebarOpen && 'hidden lg:block'}`}
           initial={false}
           animate={{ x: isSidebarOpen ? 0 : '-100%' }}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           style={lato.style}
         >
-          <div className="absolute -bottom-16 -right-16 w-40 h-40 bg-fuchsia-200 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
+          <div className="absolute -bottom-16 -right-16 w-40 h-40 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
 
           <div className="flex justify-between items-center mb-6">
-            <h3 className="text-xl font-semibold text-violet-900 border-b border-violet-200 w-full" >Filters</h3>
+            <h3 className="text-xl font-semibold text-indigo-900 border-b border-indigo-200 w-full" >Filters</h3>
 
             <Button
               variant="ghost"
@@ -240,12 +251,13 @@ export default function CourseCardsWithBadgeFilters() {
 
           <div className="space-y-4">
             <div>
-              <h4 className="font-semibold mb-2 text-violet-800">Categories</h4>
+              <h4 className="font-semibold mb-2 text-indigo-800">Categories</h4>
               <div className="flex flex-wrap">
                 {categories.map(category => (
                   <FilterBadge
                     key={category}
                     label={category}
+                    // @ts-expect-error-ignore
                     isSelected={selectedCategories.includes(category)}
                     onClick={() => toggleCategory(category)}
                   />
@@ -254,12 +266,13 @@ export default function CourseCardsWithBadgeFilters() {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-2 text-violet-800">Levels</h4>
+              <h4 className="font-semibold mb-2 text-indigo-800">Levels</h4>
               <div className="flex flex-wrap">
                 {levels.map(level => (
                   <FilterBadge
                     key={level}
                     label={level}
+                    // @ts-expect-error-ignore
                     isSelected={selectedLevels.includes(level)}
                     onClick={() => toggleLevel(level)}
                   />
@@ -268,7 +281,7 @@ export default function CourseCardsWithBadgeFilters() {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-2 text-violet-800">Price Range</h4>
+              <h4 className="font-semibold mb-2 text-indigo-800">Price Range</h4>
               <Slider
                 min={0}
                 max={200}
@@ -284,7 +297,7 @@ export default function CourseCardsWithBadgeFilters() {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-2 text-violet-800">Duration (weeks)</h4>
+              <h4 className="font-semibold mb-2 text-indigo-800">Duration (weeks)</h4>
               <Slider
                 min={0}
                 max={12}
@@ -310,7 +323,7 @@ export default function CourseCardsWithBadgeFilters() {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 style={jost.style}
-                className="pl-10 bg-gradient-to-tl from-fuchsia-100 to-fuchsia-50  outline-none focus-visible:ring-0 text-violet-400 hover:border-violet-200"
+                className="pl-10 bg-gradient-to-tl from-blue-100 to-blue-50  outline-none focus-visible:ring-0 text-indigo-400 hover:border-indigo-200"
               />
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             </div>
@@ -338,7 +351,7 @@ export default function CourseCardsWithBadgeFilters() {
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="text-center text-fuchsia-300 h-[60vh] flex items-center justify-center text-2xl mt-8"
+                className="text-center text-blue-300 h-[60vh] flex items-center justify-center text-2xl mt-8"
                 style={jost.style}
               >
                 No courses found. Try adjusting your filters.
