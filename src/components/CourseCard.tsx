@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Clock, Users, Star, BookOpen } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Lato, Jost, Open_Sans } from "next/font/google";
+import { useRouter } from "next/navigation";
 
 const lato = Lato({
   subsets: ['latin'],
@@ -26,12 +27,13 @@ const openSans = Open_Sans({
 
 // @ts-expect-error-ignore
 const CourseCard = ({ title, instructor, duration, students, rating, price, category, description }) => {
-
+  const router = useRouter();
   return (
     <motion.div
       whileHover={{ scale: 1.05, rotate: -1 }}
       whileTap={{ scale: 0.95 }}
       transition={{ type: "spring", stiffness: 300 }}
+
     >
       <Card className="w-96 h-[28rem] overflow-hidden relative bg-gradient-to-br from-violet-100 via-fuchsia-50 to-pink-100 border-none shadow-lg">
         <div className="absolute top-0 right-0 w-32 h-32 bg-violet-300 rounded-full filter blur-3xl opacity-30 animate-pulse" />
@@ -90,14 +92,15 @@ const CourseCard = ({ title, instructor, duration, students, rating, price, cate
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 py-2 bg-gradient-to-r from-violet-100 to-fuchsia-200 font-semibold rounded-full shadow-md hover:shadow-lg transition-all duration-300 text-violet-900"
+              className="px-6 py-2 bg-gradient-to-r z-50 from-violet-100 to-fuchsia-200 font-semibold rounded-full shadow-md hover:shadow-lg transition-all duration-300 text-violet-900"
+              onClick={() => { router.push("/courses/react-developement") }}
             >
               Enroll Now
             </motion.button>
           </motion.div>
         </CardContent>
       </Card>
-    </motion.div>
+    </motion.div >
   );
 };
 

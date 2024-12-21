@@ -9,6 +9,7 @@ import { Slider } from "@/components/ui/slider"
 import { Clock, Users, Star, ChevronRight, Search, Filter, X } from 'lucide-react'
 import Image from 'next/image'
 import { Open_Sans, Lato, Jost } from "next/font/google"
+import { useRouter } from 'next/navigation'
 
 const lato = Lato({
   subsets: ['latin'],
@@ -76,7 +77,7 @@ const courses = [
 // @ts-expect-error-ignore
 const CourseCard = ({ course }) => {
   const [isHovered, setIsHovered] = useState(false)
-
+  const router = useRouter();
   return (
     <motion.div
       layout
@@ -130,6 +131,8 @@ const CourseCard = ({ course }) => {
           >
             <Button
               className="w-full bg-gradient-to-r from-indigo-400 to-indigo-400 text-white hover:from-indigo-500 hover:to-indigo-500 transition-all duration-300"
+              onClick={() => router.push("/courses/react-development")}
+
             >
               Enroll Now <ChevronRight className="w-4 h-4 ml-2" />
             </Button>

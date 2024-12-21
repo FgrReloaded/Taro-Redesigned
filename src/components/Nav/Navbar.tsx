@@ -33,10 +33,10 @@ const Navbar = () => {
 
   return (
     <header className="fixed right-0 left-0 w-11/12 mx-auto rounded-full top-0 py-4 px-16 bg-transparent  z-[100] flex items-center border-b-[1px] border-transparent justify-between">
-      <aside className="flex justify-center items-center gap-2 text-black rounded-full bg-gradient-to-br from-fuchsia-100 to-white border border-fuchsia-200 px-4 py-2" style={raleway.style}>
+      <Link href="/"  className="flex justify-center items-center gap-2 text-black rounded-full bg-gradient-to-br from-fuchsia-100 to-white border border-fuchsia-200 px-4 py-2" style={raleway.style}>
         <Image src={taroLogo} alt="Taro Logo" width={30} height={30} />
         <h1 className="text-2xl font-bold text-fuchsia-700">Taro</h1>
-      </aside>
+      </Link>
       <aside className='flex items-center gap-8 bg-fuchsia-50/50 rounded-full py-4 px-8 backdrop-blur-lg'>
         <nav className="flex items-center gap-8" style={openSans.style}>
           <Link href="/" className="text-purple-950 uppercase">Home</Link>
